@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Video Player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="player">
+        <div class="loading" id="loader"></div>
+        <video id="video" src="https://redirector.googlevideo.com/videoplayback?expire=1781808451&ei=4-gzavKyDfjcp-oP8LeT4As&ip=176.1.228.57&id=o-AA-JJhdIlfj4HTPi4RUMh_cTZb6qkjSWIueBGwqFi4pf&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&cps=293&met=1781786851%2C&mh=0V&mm=31%2C29&mn=sn-uxax4vopj5qx-q0n6%2Csn-4g5edn6r&ms=au%2Crdu&mv=m&mvi=3&pl=17&rms=au%2Cau&initcwndbps=1681250&bui=ARmQxEVBh2x9pZ4Z4fkKnKoRL2ckp2hOQcEOSl2ympN02U7OScDX2W1Zeg10Y7_x1lKj8O3kVL7WFZ3c&spc=SQ-umgzXc21Et3vb1ZVf1dIEAiDwssjcGOSZdo1_8eTmpr2mhQ-e&vprv=1&svpuc=1&mime=video%2Fmp4&rqh=1&gir=yes&clen=260421770&ratebypass=yes&dur=5855.166&lmt=1781775696505494&mt=1781786497&fvip=3&fexp=51565116%2C51565681%2C51987687&c=ANDROID_VR&txp=3308224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Crqh%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AHEqNM4wRgIhAPuRRDiGGxP5V4dC10uwmy3DWLbxFQa3RmJY1hGBcaVZAiEA12QDQdMxnczkeR7IbW0BiG_GlQBDgEKIW6Wwm3mE098%3D&lsparams=cps%2Cmet%2Cmh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Crms%2Cinitcwndbps&lsig=APaTxxMwRAIgQc2ErAMLt3N5d1-v2Mip6EmJry73eIgYm0gmee7dOKkCIF-k3dhj_Ds7K2WTfxsQsYXpGfzQrjAJVIX-Kbmlx7V-&pot=Ms4ExyU3R9bB9zHHGzwAU699bGuXYj5pf6ESofxGx3T3j8hBfl2YAMQqWWqKu8fWQtvE8heFPxKaxEM7aIteRrhFh_jOq8d3CS_fOb4ALqeYNZorxwMKpWq02d5o63jJbFBVFo0r5XgT4sZGVHROJBBw6NbtQT2M1t6M57fZTg_yPTWKPklJ0t9AFry0UPfGszmi-3fXk5YExq0aveK0Vme7nghyz1Aguil8d3OlfiiylLTBGAYE7pgu4EWAiMuF0HSvXI2s6OK3LhZxu-ct-CXSnP7kkjzrjIUIQqwMOPOjye2UwU7xzWMhn-TYI2UbHFa2Oc9Ns99-JpjTHUG67pP1X0Q8bM_0nldnhklNZu766i_W8s2ooadR4q0EWuQANoL6_RYBcUbXVke11o_-KraGsDx-cQLTi6g-l6Hpq4B9Ljta4bqWxE8-Ea0fdfYgI418odMkrM2b1fLrKvXWfWYGVKHs470_vXUZrE-TtdQJYOLlRUKTZPqj395XQA828UDYedm_q42yqr8M7QY4_JU6csCDM_1e2n9QxsWIyQZhQWdxBjGKtBJTQdZTmdRRpbT-V3JNRjcCkOVtcmHblfkwxi7mklCcbo6zMLxGIatjekqp7fj-w9GaNImHtVF9DUiwTg0w7CwW2NM25lmukAwRfVyOwRGbRu_3n9nF-nNx97MQLq3BgE4U922b_1ueCiQasx3KgMr6EhArRUTLhQskPhpfrSUb7PW1YL0twhQaHSa7Oq90qWiX2FM29ctOveyWHfm32T5T8Nq_lxLJ9-A="></video>
+        </video>
+        <div id="overLayBanner" data-src="https://i.ytimg.com/vi/rM5a70tYZqI/sddefault.jpg" class="overLayBanner"></div>
+        <div class="overlay">
+            <button title="Rewind" id="rewindLeft"><i class="fa-solid fa-backward"></i></button>
+            <div id="playBtn">
+            <i class="fa-solid fa-play"></i>
+            </div>
+            <button title="Forward" id="forwardRight"><i class="fa-solid fa-forward"></i></button>
+        </div>
+        <div class="controls">
+            <button title="Play/Pause" id="playPause"><i class="fa-solid fa-play"></i></button>
+            <input title="Video Progress" type="range" id="progress" min="0" max="100" value="0"/>
+            <span title="Current Time" id="time">00:00/00:00</span>
+            <button title="Mute/Unmute" id="muteUnmute"><i class="fa-solid fa-volume-high"></i></button>
+            <input title="Volume" type="range" id="volume" min="0" max="100" step="0.01" value="100"/>
+            <div class="speed-wrapper">
+                <button id="speedBtn">
+                    1x
+                </button>
+                <div class="speed-menu" id="speedMenu">
+                    <div data-speed="0.5">0.5x</div>
+                    <div data-speed="1" class="active">1x</div>
+                    <div data-speed="1.25">1.25x</div>
+                    <div data-speed="1.5">1.5x</div>
+                    <div data-speed="2">2x</div>
+                </div>
+            </div>
+            <button title="Fullscreen" id="fullscreen"><i class="fa-solid fa-expand"></i></button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
